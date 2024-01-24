@@ -53,7 +53,7 @@
 
      -  name: install mysql client
         ansible.builtin.dnf:
-          src: mysql
+          name: mysql
           state: installed
 
      -  name: load schema
