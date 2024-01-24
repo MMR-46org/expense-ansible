@@ -7,8 +7,8 @@
 
      -  name: enable nodejs18 version
         ansible.builtin.service:
-          - name: nodejs
-            enabled: yes
+          name: nodejs
+          enabled: yes
 
      -  name: install nodejs
         ansible.builtin.dnf:
