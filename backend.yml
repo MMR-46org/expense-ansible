@@ -56,6 +56,12 @@
           name: mysql
           state: installed
 
+     -  name: install python library for mysql
+        ansible.builtin.dnf:
+          name: python3-PyMySQL
+          state: installed
+
+
      -  name: load schema
         community.mysql.mysql_db:
           state: import
