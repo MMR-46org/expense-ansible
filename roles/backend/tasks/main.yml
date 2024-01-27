@@ -35,15 +35,13 @@
      enabled: yes
 
 
--  name: install mysql client
+-  name: install mysql client and python library for mysql
    ansible.builtin.dnf:
-     name: mysql
+     name: {{ item }}
      state: installed
-
--  name: install python library for mysql
-   ansible.builtin.dnf:
-     name: python3-PyMySQL
-     state: installed
+   loop:
+     - mysql
+     - python3-PyMySQL
 
 
 -  name: load schema
