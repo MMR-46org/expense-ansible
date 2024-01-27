@@ -53,4 +53,4 @@
      target: /app/schema/backend.sql
      login_user: root
      login_password: "{{ lookup('amazon.aws.aws_ssm', 'dev.mysql.root_password', region='us-east-1' ) }}"
-     login_host: mysql.madhanmohanreddy.tech
+     login_host: mysql- {{ env }}.madhanmohanreddy.tech
