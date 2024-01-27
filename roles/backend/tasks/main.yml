@@ -37,7 +37,7 @@
 
 -  name: install mysql client and python library for mysql
    ansible.builtin.dnf:
-     name: {{ item }}
+     name: "{{ item }}"
      state: installed
    loop:
      - mysql
