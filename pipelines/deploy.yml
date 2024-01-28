@@ -30,6 +30,7 @@ pipelines:
                       - -e
                       - ansible_password=DevOps321
                       - expense.yml
+                      - service_name=frontend
       - QA:
           fetch_materials: true
           approval:
