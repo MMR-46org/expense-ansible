@@ -23,6 +23,62 @@ pipelines:
               timeout: 0
               tasks:
                 - exec:
+                    command: ansible-playbook
+                    arguments: ["-i", "frontend-dev.madhanmohanreddy.tech,", "-e", "ansible_user=centos", "-e", "ansible_password=DevOps321", "expense.yml"]
+
+
+
+
+
+      - QA:
+          fetch_materials: true
+          keep_artifacts: false
+          clean_workspace: false
+          approval:
+            type: manual
+          jobs:
+            deployment:
+              timeout: 0
+              tasks:
+                - exec:
+                    command: ls
+                    arguments:
+                      - -l
+                      - - A
+
+
+
+
+
+      - UAT:
+          fetch_materials: true
+          keep_artifacts: false
+          clean_workspace: false
+          approval:
+            type: manual
+          jobs:
+            deployment:
+              timeout: 0
+              tasks:
+                - exec:
+                    command: ls
+                    arguments:
+                      - -l
+                      - - A
+
+
+
+      - PROD:
+          fetch_materials: true
+          keep_artifacts: false
+          clean_workspace: false
+          approval:
+            type: manual
+          jobs:
+            deployment:
+              timeout: 0
+              tasks:
+                - exec:
                     command: ls
                     arguments:
                       - -l
