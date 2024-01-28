@@ -2,7 +2,7 @@ format_version: 10
 pipelines:
   deploy:
     group: defaultGroup
-    label_template: "${COUNT}"
+    label_template: ${COUNT}
     lock_behavior: none
     display_order: -1
     materials:
@@ -22,12 +22,14 @@ pipelines:
               tasks:
                 - exec:
                     command: ansible-playbook
-                    arguments: ["-i", "frontend-dev.madhanmohanreddy.tech,", "-e", "ansible_user=centos", "-e", "ansible_password=DevOps321", "expense.yml"]
-
-
-
-
-
+                    arguments:
+                      - -i
+                      - frontend-dev.madhanmohanreddy.tech,
+                      - -e
+                      - ansible_user=centos
+                      - -e
+                      - ansible_password=DevOps321
+                      - expense.yml
       - QA:
           fetch_materials: true
           approval:
@@ -40,12 +42,7 @@ pipelines:
                     command: ls
                     arguments:
                       - -l
-                      - - A
-
-
-
-
-
+                      - -A
       - UAT:
           fetch_materials: true
           approval:
@@ -58,10 +55,7 @@ pipelines:
                     command: ls
                     arguments:
                       - -l
-                      - - A
-
-
-
+                      - -A
       - PROD:
           fetch_materials: true
           approval:
@@ -74,4 +68,4 @@ pipelines:
                     command: ls
                     arguments:
                       - -l
-                      - - A
+                      - -A
