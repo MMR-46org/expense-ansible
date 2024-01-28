@@ -14,8 +14,6 @@ pipelines:
     stages:
       - DEV:
           fetch_materials: true
-          keep_artifacts: false
-          clean_workspace: false
           approval:
             type: manual
           jobs:
@@ -32,8 +30,6 @@ pipelines:
 
       - QA:
           fetch_materials: true
-          keep_artifacts: false
-          clean_workspace: false
           approval:
             type: manual
           jobs:
@@ -52,8 +48,6 @@ pipelines:
 
       - UAT:
           fetch_materials: true
-          keep_artifacts: false
-          clean_workspace: false
           approval:
             type: manual
           jobs:
@@ -70,8 +64,6 @@ pipelines:
 
       - PROD:
           fetch_materials: true
-          keep_artifacts: false
-          clean_workspace: false
           approval:
             type: manual
           jobs:
