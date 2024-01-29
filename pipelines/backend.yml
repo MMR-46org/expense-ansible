@@ -1,6 +1,6 @@
 format_version: 10
 pipelines:
-  deploy:
+  backend:
     group: defaultGroup
     label_template: ${COUNT}
     lock_behavior: none
@@ -22,7 +22,7 @@ pipelines:
               tasks:
                 - exec:
                     command: ansible-playbook
-                    arguments: ["-i","frontend-dev.madhanmohanreddy.tech,", "-e", "ansible_user=centos", "-e", "ansible_password=DevOps321", "expense.yml", "-e", "service_name=frontend", "-e", "env=dev"]
+                    arguments: ["-i","frontend-dev.madhanmohanreddy.tech,", "-e", "ansible_user=centos", "-e", "ansible_password=DevOps321", "expense.yml", "-e", "service_name=backend", "-e", "env=dev"]
 
       - QA:
           fetch_materials: true
