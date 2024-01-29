@@ -22,12 +22,13 @@ pipelines:
               tasks:
                 - exec:
                     command: ansible-playbook
-                    arguments: ["-i","frontend-dev.madhanmohanreddy.tech,", "-e", "ansible_user=centos", "-e", "ansible_password=DevOps321", "expense.yml", "-e", "service_name=mysql", "-e", "env=dev"]
+                    arguments: ["-i","mysql-dev.madhanmohanreddy.tech,", "-e", "ansible_user=centos", "-e", "ansible_password=DevOps321", "expense.yml", "-e", "service_name=mysql", "-e", "env=dev"]
 
       - QA:
           fetch_materials: true
           approval:
             type: manual
+            allow_only_on_success: true
           jobs:
             deployment:
               timeout: 0
@@ -41,6 +42,7 @@ pipelines:
           fetch_materials: true
           approval:
             type: manual
+            allow_only_on_success: true
           jobs:
             deployment:
               timeout: 0
@@ -54,6 +56,7 @@ pipelines:
           fetch_materials: true
           approval:
             type: manual
+            allow_only_on_success: true
           jobs:
             deployment:
               timeout: 0
