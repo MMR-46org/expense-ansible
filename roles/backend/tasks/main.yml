@@ -33,6 +33,7 @@
      name: backend
      state: started
      enabled: yes
+     daemon-reload: yes
 
 
 -  name: install mysql client and python library for mysql
