@@ -1,0 +1,18 @@
+-  name: Extract node exporter
+   ansible.builtin.unarchive:
+     src: https://github.com/prometheus/node_exporter/releases/download/v{{node_exporter_version}}/node_exporter-{{node_exporter_version}}.linux-amd64.tar.gz
+     dest: /opt
+     remote_src: yes
+
+-  name: copy node exporter service
+   ansible.builtin.template:
+     src: node_exporter.service
+     dest: /etc/systemd/system/node_exporter.service
+
+
+-  name: start node exporter
+   ansible.builtin.systemd_service:
+     name: node_exporter
+     state: restarted
+     enabled: yes
+     daemon_reload: yes
