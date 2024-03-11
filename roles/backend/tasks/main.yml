@@ -28,6 +28,10 @@
    community.general.npm:
      path: /app
 
+-  name: install newrelic npm dependency
+   ansible.builtin.shell: npm install newrelic --save
+
+
 -  name: reloading systemd and start backend service
    ansible.builtin.systemd_service:
      name: backend
@@ -53,3 +57,5 @@
      login_user: "{{ lookup('amazon.aws.aws_ssm', '{{env}}.expense.rds.username', region='us-east-1' ) }}"
      login_password: "{{ lookup('amazon.aws.aws_ssm', '{{env}}.expense.rds.password', region='us-east-1' ) }}"
      login_host: "{{ lookup('amazon.aws.aws_ssm', '{{env}}.expense.rds.endpoint', region='us-east-1' ) }}"
+
+
