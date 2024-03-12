@@ -2,7 +2,7 @@
    ansible.builtin.shell: dnf module disable nodejs -y
 
 -  name: enable nodejs18 version
-   ansible.builtin.shell: dnf module enable nodejs -y
+   ansible.builtin.shell: dnf module enable nodejs:18 -y
 
 
 -  name: install nodejs
@@ -34,13 +34,6 @@
      chdir: /app
 
 
--  name: reloading systemd and start backend service
-   ansible.builtin.systemd_service:
-     name: backend
-     state: started
-     enabled: yes
-     daemon-reload: yes
-
 
 -  name: install mysql client and python library for mysql
    ansible.builtin.dnf:
@@ -61,3 +54,9 @@
      login_host: "{{ lookup('amazon.aws.aws_ssm', '{{env}}.expense.rds.endpoint', region='us-east-1' ) }}"
 
 
+-  name: reloading systemd and start backend service
+   ansible.builtin.systemd_service:
+     name: backend
+     state: started
+     enabled: yes
+     daemon-reload: yes
