@@ -30,8 +30,8 @@
 
 -  name: install newrelic npm dependency
    ansible.builtin.shell: npm install newrelic --save
-#   args:
-#     chdir: /app
+   args:
+     chdir: /app
 
 
 -  name: reloading systemd and start backend service
