@@ -10,9 +10,34 @@
      dest: /etc/systemd/system/node_exporter.service
 
 
+-  name: copy the elastic repo file
+   ansible.builtin.template:
+     src: elastic.repo
+     dest: /etc/yum.repos.d/elastic.repo
+
+
 -  name: start node exporter
    ansible.builtin.systemd_service:
      name: node_exporter
      state: restarted
      enabled: yes
      daemon_reload: yes
+
+
+-  name: install filebeat
+   ansible.builtin.dnf:
+     name: filebeat
+     state: installed
+     enabled: yes
+
+
+-  name: filebeat config update
+   ansible.builtin.template:
+     src: filebeat.yml
+     dest: /etc/filebeat/filebeat.yml
+
+
+-  name: start filebeat
+   ansible.builtin.systemd_service:
+     name: filebeat
+     state: restarted
