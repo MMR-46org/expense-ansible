@@ -28,7 +28,6 @@
    ansible.builtin.dnf:
      name: filebeat
      state: installed
-     enabled: yes
 
 
 -  name: filebeat config update
