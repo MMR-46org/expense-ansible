@@ -25,7 +25,7 @@ pipelines:
               tasks:
                 - exec:
                     command: bash
-                    arguments: [ "scripts/deployment.sh" ]
+                    arguments: [ "deployment.sh" ]
 
       - QA:
           fetch_materials: true
