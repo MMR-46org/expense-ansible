@@ -1,7 +1,7 @@
 
 ENV_NAME=$(echo $GO_STAGE_NAME | tr [:upper:] [:lower:] )
 
-aws ssm put-parameter  --name "${ENV_NAME}.expense.${component}.app_version"  --value "${app_version}" --type "String"  --overwrite
+aws ssm put-parameter  --name "${ENV_NAME}.expense.${component}.app_version"  --value "app_version" --type "String"  --overwrite
 
 aws ec2 describe-instances --filter "Name=tag:Name,Values=${ENV_NAME}-expense-${component}" --query 'Reservations[*].Instances[*].PrivateIpAddress' --output text >/tmp/hosts
 
