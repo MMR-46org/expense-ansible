@@ -24,7 +24,7 @@ pipelines:
               tasks:
                 - exec:
                     command: ansible-playbook
-                    arguments: ["-i","backend-dev.madhanmohanreddy.tech,", "-e", "ansible_user=centos", "-e", "ansible_password=DevOps321", "expense.yml", "-e", "service_name=backend", "-e", "env=dev","e", "app_version=${app_version}"]
+                    arguments: ["-i","backend-dev.madhanmohanreddy.tech,", "-e", "ansible_user=centos", "-e", "ansible_password=DevOps321", "expense.yml", "-e", "service_name=backend", "-e", "env=dev","-e", "app_version=${app_version}"]
 
       - QA:
           fetch_materials: true
