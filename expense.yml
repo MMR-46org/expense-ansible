@@ -1,6 +1,7 @@
 -  name: expense project setup
    hosts: all
-   become: true
+   become: yes
+   serial: 1
    roles:
      -  "{{ service_name }}"
 
